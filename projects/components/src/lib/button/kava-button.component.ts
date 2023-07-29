@@ -10,6 +10,4 @@ import { ThemeService } from '../theme/theme.service';
 export class KavaButtonComponent {
   @Input() label!: string;
   @Input() disabled: boolean = false;
-  constructor(public themeService: ThemeService) {
-  }
 }

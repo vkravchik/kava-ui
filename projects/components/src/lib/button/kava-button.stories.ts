@@ -6,11 +6,13 @@ const meta: Meta<KavaButtonComponent> = {
   component: KavaButtonComponent,
   excludeStories: /.*Data$/,
   tags: ['autodocs'],
-  render: (args: KavaButtonComponent) => ({
-    props: {
-      ...args
-    },
-  }),
+  render: (args: KavaButtonComponent) => {
+    return ({
+      props: {
+        ...args
+      },
+    })
+  }
 };
 
 export default meta;

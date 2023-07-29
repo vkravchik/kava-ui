@@ -4,6 +4,7 @@
   --background-secondary: #a3b9cc;
   --background-tertiary: #5c7d99;
   --background-light: #ffffff;
+  --background-disabled: rgba(0, 0, 0, 0.12);
 
   --text-default: rgba(0, 0, 0, 0.87);
   --text-secondary: rgba(0, 0, 0, 0.6);

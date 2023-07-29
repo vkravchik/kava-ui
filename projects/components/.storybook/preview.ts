@@ -1,6 +1,6 @@
-import type { Preview, StoryContext, StoryFn } from '@storybook/angular';
-import { setCompodocJson } from "@storybook/addon-docs/angular";
-import docJson from "../documentation.json";
+import { setCompodocJson } from '@storybook/addon-docs/angular';
+import type { Preview, StoryContext } from '@storybook/angular';
+import docJson from '../documentation.json';
 import { ThemeService } from '../src/lib/theme/theme.service';
 
 setCompodocJson(docJson);
@@ -27,7 +27,13 @@ const preview: Preview = {
         title: 'Theme',
         icon: 'circlehollow',
         // Array of plain string values or MenuItem shape (see below)
-        items: ['light', 'dark'],
+        items: [{
+          value: 'light',
+          title: 'KaVa Light'
+        }, {
+          value: 'dark',
+          title: 'KaVa Dark'
+        }],
         // Change title based on selected value
         dynamicTitle: true,
       },
@@ -37,6 +43,9 @@ const preview: Preview = {
     withThemeProvider
   ],
   parameters: {
+    docs: {
+      story: { inline: false }, // render the story in an iframe
+    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {

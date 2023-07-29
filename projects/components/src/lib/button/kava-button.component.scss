@@ -1,17 +1,14 @@
 .kava-button {
+  border: none;
+  padding: .5rem;
+
   color: var(--primary-contrast-text);
   background-color: var(--primary-default);
-}
-.kava-button-dark {
-  color: var(--dark-primary-contrast-text);
-  background-color: var(--dark-primary-default);
-}
+  cursor: pointer;
 
-.kava-button-secondary {
-  color: var(--error-contrast-text);
-  background-color: var(--error-default);
-}
-.kava-button-secondary-dark {
-  color: var(--dark-error-contrast-text);
-  background-color: var(--dark-error-default);
+  &:disabled {
+    background-color: var(--background-disabled);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+  }
 }

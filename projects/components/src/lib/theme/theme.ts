@@ -1,6 +1,52 @@
 export interface Theme {
   name: string;
-  properties: any;
+  properties: ThemeProperties;
+}
+
+export interface ThemeProperties {
+  '--background-default': string;
+  '--background-secondary': string;
+  '--background-tertiary': string;
+  '--background-light': string;
+  '--background-disabled': string;
+
+  '--text-default': string;
+  '--text-secondary': string;
+  '--text-disabled': string;
+
+  '--primary-default': string;
+  '--primary-dark': string;
+  '--primary-light': string;
+  '--primary-contrast-text': string;
+
+  '--secondary-default': string;
+  '--secondary-dark': string;
+  '--secondary-light': string;
+  '--secondary-contrast-text': string;
+
+  '--error-default': string;
+  '--error-dark': string;
+  '--error-light': string;
+  '--error-contrast-text': string;
+
+  '--warning-default': string;
+  '--warning-dark': string;
+  '--warning-light': string;
+  '--warning-contrast-text': string;
+
+  '--info-default': string;
+  '--info-dark': string;
+  '--info-light': string;
+  '--info-contrast-text': string;
+
+  '--success-default': string;
+  '--success-dark': string;
+  '--success-light': string;
+  '--success-contrast-text': string;
+
+  '--divider': string;
+
+  [key: string]: string;
 }
 
 export const light: Theme = {
@@ -10,6 +56,7 @@ export const light: Theme = {
     '--background-secondary': '#a3b9cc',
     '--background-tertiary': '#5c7d99',
     '--background-light': '#ffffff',
+    '--background-disabled': 'rgba(0, 0, 0, 0.12)',
 
     '--text-default': 'rgba(0, 0, 0, 0.87)',
     '--text-secondary': 'rgba(0, 0, 0, 0.6)',
@@ -56,6 +103,7 @@ export const dark: Theme = {
     '--background-secondary': '#41474d',
     '--background-tertiary': '#797c80',
     '--background-light': '#41474d',
+    '--background-disabled': 'rgba(255, 255, 255, 0.12)',
 
     '--text-default': '#fff',
     '--text-secondary': 'rgba(255, 255, 255, 0.7)',

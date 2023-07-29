@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { Theme, light, dark } from "./theme";
+import { Injectable } from '@angular/core';
+import { dark, light, Theme } from './theme';
 
 @Injectable({
   providedIn: "root"
@@ -31,7 +31,7 @@ export class ThemeService {
   setActiveTheme(theme: Theme): void {
     this.active = theme;
 
-    Object.keys(this.active.properties).forEach(property => {
+    Object.keys(this.active.properties).forEach((property) => {
       document.documentElement.style.setProperty(
         property,
         this.active.properties[property]

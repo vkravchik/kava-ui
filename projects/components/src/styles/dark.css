@@ -4,6 +4,7 @@
   --dark-background-secondary: #41474d;
   --dark-background-tertiary: #797c80;
   --dark-background-light: #41474d;
+  --dark-background-disabled: rgba(255, 255, 255, 0.12);
 
   --dark-text-default: #fff;
   --dark-text-secondary: rgba(255, 255, 255, 0.7);

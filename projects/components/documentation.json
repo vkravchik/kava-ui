@@ -214,12 +214,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".kava-button {\n  color: var(--primary-contrast-text);\n  background-color: var(--primary-default);\n}\n.kava-button-dark {\n  color: var(--dark-primary-contrast-text);\n  background-color: var(--dark-primary-default);\n}\n\n.kava-button-secondary {\n  color: var(--error-contrast-text);\n  background-color: var(--error-default);\n}\n.kava-button-secondary-dark {\n  color: var(--dark-error-contrast-text);\n  background-color: var(--dark-error-default);\n}\n",
+                    "data": ".kava-button {\n  border: none;\n  padding: .5rem;\n\n  color: var(--primary-contrast-text);\n  background-color: var(--primary-default);\n  cursor: pointer;\n\n  &:disabled {\n    background-color: var(--background-disabled);\n    color: var(--text-disabled);\n    cursor: not-allowed;\n  }\n}\n",
                     "styleUrl": "./kava-button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<button class=\"kava-button-secondary\"\n        [disabled]=\"disabled\">{{label}}</button>\n"
+            "templateData": "<button class=\"kava-button\"\n        [disabled]=\"disabled\">{{label}}</button>\n"
         }
     ],
     "modules": [
@@ -277,6 +277,16 @@
                 "defaultValue": "{\n  name: 'dark',\n  properties: {\n    '--background-default': '#121212',\n    '--background-secondary': '#41474d',\n    '--background-tertiary': '#797c80',\n    '--background-light': '#41474d',\n\n    '--text-default': '#fff',\n    '--text-secondary': 'rgba(255, 255, 255, 0.7)',\n    '--text-disabled': 'rgba(255, 255, 255, 0.5)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#d32f2f',\n    '--error-dark': '#c62828',\n    '--error-light': '#ef5350',\n    '--error-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--warning-default': '#ed6c02',\n    '--warning-dark': '#e65100',\n    '--warning-light': '#ff9800',\n    '--warning-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--info-default': '#29b6f6',\n    '--info-dark': '#0288d1',\n    '--info-light': '#4fc3f7',\n    '--info-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--success-default': '#66bb6a',\n    '--success-dark': '#388e3c',\n    '--success-light': '#81c784',\n    '--success-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--divider': 'rgba(255, 255, 255, 0.12)'\n  }\n}"
             },
             {
+                "name": "decorators",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  withThemeByClassName({\n    themes: {\n      light: \"light\",\n      dark: \"dark\",\n    },\n    defaultTheme: \"light\",\n  }),\n]"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -314,7 +324,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<KavaButtonComponent>",
-                "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent, context) => {\n    return ({\n      props: {\n        ...args\n      },\n    })\n  }\n}"
+                "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent) => {\n    return ({\n      props: {\n        ...args\n      },\n    })\n  }\n}"
             },
             {
                 "name": "preview",
@@ -324,7 +334,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: ['light', 'dark'],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n      withThemeProvider\n  ],\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: ['light', 'dark'],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
             },
             {
                 "name": "withThemeProvider",
@@ -334,7 +344,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "(Story: any, context: any) => {\n  const themeService = new ThemeService();\n\n  if (context.globals.theme === 'light') {\n    themeService.setLightTheme();\n  } else {\n    themeService.setDarkTheme();\n  }\n\n  return Story;\n}"
+                "defaultValue": "(story: Function, context: StoryContext) => {\n  const themeService = new ThemeService();\n\n  if (context.globals['theme'] === 'dark') {\n    themeService.setDarkTheme();\n  } else {\n    themeService.setLightTheme();\n  }\n\n  return story();\n}"
             }
         ],
         "functions": [],
@@ -375,6 +385,38 @@
                     "defaultValue": "{\n  name: 'light',\n  properties: {\n    '--background-default': '#f4faff',\n    '--background-secondary': '#a3b9cc',\n    '--background-tertiary': '#5c7d99',\n    '--background-light': '#ffffff',\n\n    '--text-default': 'rgba(0, 0, 0, 0.87)',\n    '--text-secondary': 'rgba(0, 0, 0, 0.6)',\n    '--text-disabled': 'rgba(0, 0, 0, 0.38)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#f44336',\n    '--error-dark': '#d32f2f',\n    '--error-light': '#e57373',\n    '--error-contrast-text': '#fff',\n\n    '--warning-default': '#ffa726',\n    '--warning-dark': '#f57c00',\n    '--warning-light': '#ffb74d',\n    '--warning-contrast-text': '#fff',\n\n    '--info-default': '#0288d1',\n    '--info-dark': '#01579b',\n    '--info-light': '#03a9f4',\n    '--info-contrast-text': '#fff',\n\n    '--success-default': '#2e7d32',\n    '--success-dark': '#1b5e20',\n    '--success-light': '#4caf50',\n    '--success-contrast-text': '#fff',\n\n    '--divider': 'rgba(0, 0, 0, 0.12)'\n  }\n}"
                 }
             ],
+            "projects/components/.storybook/preview.ts": [
+                {
+                    "name": "decorators",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  withThemeByClassName({\n    themes: {\n      light: \"light\",\n      dark: \"dark\",\n    },\n    defaultTheme: \"light\",\n  }),\n]"
+                },
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: ['light', 'dark'],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                },
+                {
+                    "name": "withThemeProvider",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(story: Function, context: StoryContext) => {\n  const themeService = new ThemeService();\n\n  if (context.globals['theme'] === 'dark') {\n    themeService.setDarkTheme();\n  } else {\n    themeService.setLightTheme();\n  }\n\n  return story();\n}"
+                }
+            ],
             "projects/components/src/lib/button/kava-button.stories.ts": [
                 {
                     "name": "Default",
@@ -404,29 +446,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<KavaButtonComponent>",
-                    "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent, context) => {\n    return ({\n      props: {\n        ...args\n      },\n    })\n  }\n}"
-                }
-            ],
-            "projects/components/.storybook/preview.ts": [
-                {
-                    "name": "preview",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: ['light', 'dark'],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n      withThemeProvider\n  ],\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
-                },
-                {
-                    "name": "withThemeProvider",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/.storybook/preview.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "(Story: any, context: any) => {\n  const themeService = new ThemeService();\n\n  if (context.globals.theme === 'light') {\n    themeService.setLightTheme();\n  } else {\n    themeService.setDarkTheme();\n  }\n\n  return Story;\n}"
+                    "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent) => {\n    return ({\n      props: {\n        ...args\n      },\n    })\n  }\n}"
                 }
             ]
         },
@@ -453,6 +473,16 @@
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/components/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "decorators",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "projects/components/.storybook/preview.ts",
                 "type": "variable",

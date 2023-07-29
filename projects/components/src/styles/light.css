@@ -1,0 +1,54 @@
+:root {
+  /* Colors Light */
+  --background-default: #f4faff;
+  --background-secondary: #a3b9cc;
+  --background-tertiary: #5c7d99;
+  --background-light: #ffffff;
+
+  --text-default: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+
+  --primary-default: #2f56e2;
+  --primary-dark: rgb(32, 60, 158);
+  --primary-light: rgb(88, 119, 231);
+  --primary-contrast-text: #fff;
+
+  --secondary-default: #e22f56;
+  --secondary-dark: rgb(158, 32, 60);
+  --secondary-light: rgb(231, 88, 119);
+  --secondary-contrast-text: #fff;
+
+  --error-default: #f44336;
+  --error-dark: #d32f2f;
+  --error-light: #e57373;
+  --error-contrast-text: #fff;
+
+  --warning-default: #ffa726;
+  --warning-dark: #f57c00;
+  --warning-light: #ffb74d;
+  --warning-contrast-text: #fff;
+
+  --info-default: #0288d1;
+  --info-dark: #01579b;
+  --info-light: #03a9f4;
+  --info-contrast-text: #fff;
+
+  --success-default: #2e7d32;
+  --success-dark: #1b5e20;
+  --success-light: #4caf50;
+  --success-contrast-text: #fff;
+
+  --divider: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  background: var(--background-default);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}

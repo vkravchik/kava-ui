@@ -1,0 +1,17 @@
+.kava-button {
+  color: var(--primary-contrast-text);
+  background-color: var(--primary-default);
+}
+.kava-button-dark {
+  color: var(--dark-primary-contrast-text);
+  background-color: var(--dark-primary-default);
+}
+
+.kava-button-secondary {
+  color: var(--error-contrast-text);
+  background-color: var(--error-default);
+}
+.kava-button-secondary-dark {
+  color: var(--dark-error-contrast-text);
+  background-color: var(--dark-error-default);
+}

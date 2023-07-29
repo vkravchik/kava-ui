@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "projects/components/src/styles/light.css",
+              "projects/components/src/styles/dark.css"
             ],
             "scripts": []
           },
@@ -129,6 +131,37 @@
               "zone.js",
               "zone.js/testing"
             ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/components/.storybook",
+            "styles": ["projects/components/src/styles/light.css", "projects/components/src/styles/dark.css"],
+            "browserTarget": "components:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/components"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/components/.storybook",
+            "browserTarget": "components:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/components"
+            ],
+            "outputDir": "dist/storybook/components"
           }
         }
       }

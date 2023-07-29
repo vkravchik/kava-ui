@@ -1,0 +1,564 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Theme",
+            "id": "interface-Theme-4b93f1edc4abbecbd0bab99c9413d6e2cd46b71ae91bf605260299504afc49f054317eeeb112caa8434f4c6e1d2938c7b97f2c63b191469f7e2166426d56aeef",
+            "file": "projects/components/src/lib/theme/theme.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Theme {\n  name: string;\n  properties: any;\n}\n\nexport const light: Theme = {\n  name: 'light',\n  properties: {\n    '--background-default': '#f4faff',\n    '--background-secondary': '#a3b9cc',\n    '--background-tertiary': '#5c7d99',\n    '--background-light': '#ffffff',\n\n    '--text-default': 'rgba(0, 0, 0, 0.87)',\n    '--text-secondary': 'rgba(0, 0, 0, 0.6)',\n    '--text-disabled': 'rgba(0, 0, 0, 0.38)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#f44336',\n    '--error-dark': '#d32f2f',\n    '--error-light': '#e57373',\n    '--error-contrast-text': '#fff',\n\n    '--warning-default': '#ffa726',\n    '--warning-dark': '#f57c00',\n    '--warning-light': '#ffb74d',\n    '--warning-contrast-text': '#fff',\n\n    '--info-default': '#0288d1',\n    '--info-dark': '#01579b',\n    '--info-light': '#03a9f4',\n    '--info-contrast-text': '#fff',\n\n    '--success-default': '#2e7d32',\n    '--success-dark': '#1b5e20',\n    '--success-light': '#4caf50',\n    '--success-contrast-text': '#fff',\n\n    '--divider': 'rgba(0, 0, 0, 0.12)'\n  }\n};\n\nexport const dark: Theme = {\n  name: 'dark',\n  properties: {\n    '--background-default': '#121212',\n    '--background-secondary': '#41474d',\n    '--background-tertiary': '#797c80',\n    '--background-light': '#41474d',\n\n    '--text-default': '#fff',\n    '--text-secondary': 'rgba(255, 255, 255, 0.7)',\n    '--text-disabled': 'rgba(255, 255, 255, 0.5)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#d32f2f',\n    '--error-dark': '#c62828',\n    '--error-light': '#ef5350',\n    '--error-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--warning-default': '#ed6c02',\n    '--warning-dark': '#e65100',\n    '--warning-light': '#ff9800',\n    '--warning-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--info-default': '#29b6f6',\n    '--info-dark': '#0288d1',\n    '--info-light': '#4fc3f7',\n    '--info-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--success-default': '#66bb6a',\n    '--success-dark': '#388e3c',\n    '--success-light': '#81c784',\n    '--success-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--divider': 'rgba(255, 255, 255, 0.12)'\n  }\n};\n",
+            "properties": [
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "properties",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 168,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "ThemeService",
+            "id": "injectable-ThemeService-07b85dabc6aa29f045634f156e4d7f327ac5caf68b3c850cb8620e72696952ea58ecf0a2ec8e89eb020b9499361900389e1d16fce26df2a92936eb90b5b55193",
+            "file": "projects/components/src/lib/theme/theme.service.ts",
+            "properties": [
+                {
+                    "name": "active",
+                    "defaultValue": "light",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Theme",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "availableThemes",
+                    "defaultValue": "[light, dark]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Theme[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getActiveTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Theme",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getAvailableThemes",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Theme[]",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "isDarkTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setActiveTheme",
+                    "args": [
+                        {
+                            "name": "theme",
+                            "type": "Theme",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "theme",
+                            "type": "Theme",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDarkTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setLightTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from \"@angular/core\";\nimport { Theme, light, dark } from \"./theme\";\n\n@Injectable({\n  providedIn: \"root\"\n})\nexport class ThemeService {\n  private active: Theme = light;\n  private availableThemes: Theme[] = [light, dark];\n\n  getAvailableThemes(): Theme[] {\n    return this.availableThemes;\n  }\n\n  getActiveTheme(): Theme {\n    return this.active;\n  }\n\n  isDarkTheme(): boolean {\n    return this.active.name === dark.name;\n  }\n\n  setDarkTheme(): void {\n    this.setActiveTheme(dark);\n  }\n\n  setLightTheme(): void {\n    this.setActiveTheme(light);\n  }\n\n  setActiveTheme(theme: Theme): void {\n    this.active = theme;\n\n    Object.keys(this.active.properties).forEach(property => {\n      document.documentElement.style.setProperty(\n        property,\n        this.active.properties[property]\n      );\n    });\n  }\n}\n",
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "KavaButtonComponent",
+            "id": "component-KavaButtonComponent-6bf783360eedf050980aecd057c949877757830c72abffc81f60ec68bf234039eb441ff48481d8dd1a89511613d6340e342a2b4fce5d456b0f6fedefba55ea6e",
+            "file": "projects/components/src/lib/button/kava-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "kava-button",
+            "styleUrls": [
+                "./kava-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./kava-button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "themeService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ThemeService",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { ThemeService } from '../theme/theme.service';\n\n@Component({\n  selector: 'kava-button',\n  templateUrl: './kava-button.component.html',\n  styleUrls: ['./kava-button.component.scss'],\n  standalone: true\n})\nexport class KavaButtonComponent {\n  @Input() label!: string;\n  @Input() disabled: boolean = false;\n  constructor(public themeService: ThemeService) {\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".kava-button {\n  color: var(--primary-contrast-text);\n  background-color: var(--primary-default);\n}\n.kava-button-dark {\n  color: var(--dark-primary-contrast-text);\n  background-color: var(--dark-primary-default);\n}\n\n.kava-button-secondary {\n  color: var(--error-contrast-text);\n  background-color: var(--error-default);\n}\n.kava-button-secondary-dark {\n  color: var(--dark-error-contrast-text);\n  background-color: var(--dark-error-default);\n}\n",
+                    "styleUrl": "./kava-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "themeService",
+                        "type": "ThemeService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "themeService",
+                        "type": "ThemeService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<button [class]=\"themeService.isDarkTheme() ? 'kava-button-secondary-dark' : 'kava-button'\"\n        [disabled]=\"disabled\">{{label}}</button>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "ThemeModule",
+            "id": "module-ThemeModule-86b21e59814c198a58cb6acfaa4a23a0f194e08c1165eec5bf4ca06ba868a4c40c84be6a7f8c7c6b7947048b054f72799042b9b7e5344caf96240ef7d0a22bb2",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/components/src/lib/theme/theme.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ThemeService } from './theme.service';\n\n@NgModule({\n  declarations: [\n  ],\n  providers: [\n    ThemeService\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class ThemeModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "ThemeService"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "dark",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/theme/theme.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Theme",
+                "defaultValue": "{\n  name: 'dark',\n  properties: {\n    '--background-default': '#121212',\n    '--background-secondary': '#41474d',\n    '--background-tertiary': '#797c80',\n    '--background-light': '#41474d',\n\n    '--text-default': '#fff',\n    '--text-secondary': 'rgba(255, 255, 255, 0.7)',\n    '--text-disabled': 'rgba(255, 255, 255, 0.5)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#d32f2f',\n    '--error-dark': '#c62828',\n    '--error-light': '#ef5350',\n    '--error-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--warning-default': '#ed6c02',\n    '--warning-dark': '#e65100',\n    '--warning-light': '#ff9800',\n    '--warning-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--info-default': '#29b6f6',\n    '--info-dark': '#0288d1',\n    '--info-light': '#4fc3f7',\n    '--info-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--success-default': '#66bb6a',\n    '--success-dark': '#388e3c',\n    '--success-light': '#81c784',\n    '--success-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--divider': 'rgba(255, 255, 255, 0.12)'\n  }\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false\n  },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: true\n  },\n}"
+            },
+            {
+                "name": "light",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/theme/theme.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Theme",
+                "defaultValue": "{\n  name: 'light',\n  properties: {\n    '--background-default': '#f4faff',\n    '--background-secondary': '#a3b9cc',\n    '--background-tertiary': '#5c7d99',\n    '--background-light': '#ffffff',\n\n    '--text-default': 'rgba(0, 0, 0, 0.87)',\n    '--text-secondary': 'rgba(0, 0, 0, 0.6)',\n    '--text-disabled': 'rgba(0, 0, 0, 0.38)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#f44336',\n    '--error-dark': '#d32f2f',\n    '--error-light': '#e57373',\n    '--error-contrast-text': '#fff',\n\n    '--warning-default': '#ffa726',\n    '--warning-dark': '#f57c00',\n    '--warning-light': '#ffb74d',\n    '--warning-contrast-text': '#fff',\n\n    '--info-default': '#0288d1',\n    '--info-dark': '#01579b',\n    '--info-light': '#03a9f4',\n    '--info-contrast-text': '#fff',\n\n    '--success-default': '#2e7d32',\n    '--success-dark': '#1b5e20',\n    '--success-light': '#4caf50',\n    '--success-contrast-text': '#fff',\n\n    '--divider': 'rgba(0, 0, 0, 0.12)'\n  }\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<KavaButtonComponent>",
+                "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent) => ({\n    props: {\n      ...args\n    },\n  }),\n}"
+            },
+            {
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/components/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<KavaButtonComponent>",
+                "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/components/src/lib/theme/theme.ts": [
+                {
+                    "name": "dark",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/theme/theme.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Theme",
+                    "defaultValue": "{\n  name: 'dark',\n  properties: {\n    '--background-default': '#121212',\n    '--background-secondary': '#41474d',\n    '--background-tertiary': '#797c80',\n    '--background-light': '#41474d',\n\n    '--text-default': '#fff',\n    '--text-secondary': 'rgba(255, 255, 255, 0.7)',\n    '--text-disabled': 'rgba(255, 255, 255, 0.5)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#d32f2f',\n    '--error-dark': '#c62828',\n    '--error-light': '#ef5350',\n    '--error-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--warning-default': '#ed6c02',\n    '--warning-dark': '#e65100',\n    '--warning-light': '#ff9800',\n    '--warning-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--info-default': '#29b6f6',\n    '--info-dark': '#0288d1',\n    '--info-light': '#4fc3f7',\n    '--info-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--success-default': '#66bb6a',\n    '--success-dark': '#388e3c',\n    '--success-light': '#81c784',\n    '--success-contrast-text': 'rgba(0, 0, 0, 0.87)',\n\n    '--divider': 'rgba(255, 255, 255, 0.12)'\n  }\n}"
+                },
+                {
+                    "name": "light",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/theme/theme.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Theme",
+                    "defaultValue": "{\n  name: 'light',\n  properties: {\n    '--background-default': '#f4faff',\n    '--background-secondary': '#a3b9cc',\n    '--background-tertiary': '#5c7d99',\n    '--background-light': '#ffffff',\n\n    '--text-default': 'rgba(0, 0, 0, 0.87)',\n    '--text-secondary': 'rgba(0, 0, 0, 0.6)',\n    '--text-disabled': 'rgba(0, 0, 0, 0.38)',\n\n    '--primary-default': '#2f56e2',\n    '--primary-dark': 'rgb(32, 60, 158)',\n    '--primary-light': 'rgb(88, 119, 231)',\n    '--primary-contrast-text': '#fff',\n\n    '--secondary-default': '#e22f56',\n    '--secondary-dark': 'rgb(158, 32, 60)',\n    '--secondary-light': 'rgb(231, 88, 119)',\n    '--secondary-contrast-text': '#fff',\n\n    '--error-default': '#f44336',\n    '--error-dark': '#d32f2f',\n    '--error-light': '#e57373',\n    '--error-contrast-text': '#fff',\n\n    '--warning-default': '#ffa726',\n    '--warning-dark': '#f57c00',\n    '--warning-light': '#ffb74d',\n    '--warning-contrast-text': '#fff',\n\n    '--info-default': '#0288d1',\n    '--info-dark': '#01579b',\n    '--info-light': '#03a9f4',\n    '--info-contrast-text': '#fff',\n\n    '--success-default': '#2e7d32',\n    '--success-dark': '#1b5e20',\n    '--success-light': '#4caf50',\n    '--success-contrast-text': '#fff',\n\n    '--divider': 'rgba(0, 0, 0, 0.12)'\n  }\n}"
+                }
+            ],
+            "projects/components/src/lib/button/kava-button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false\n  },\n}"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: true\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<KavaButtonComponent>",
+                    "defaultValue": "{\n  title: 'Button',\n  component: KavaButtonComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: KavaButtonComponent) => ({\n    props: {\n      ...args\n    },\n  }),\n}"
+                }
+            ],
+            "projects/components/.storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/components/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "projects/components/src/lib/button/kava-button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<KavaButtonComponent>",
+                    "file": "projects/components/src/lib/button/kava-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/components/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/button/kava-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "KavaButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/button/kava-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/button/kava-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/button/kava-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/theme/theme.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ThemeService",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/theme/theme.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Theme",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/theme/theme.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dark",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/components/src/lib/theme/theme.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "light",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

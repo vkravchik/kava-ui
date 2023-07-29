@@ -4,8 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "components": [
-        "dist/components"
+      "kava-components": [
+        "dist/kava-components"
       ]
     },
     "outDir": "./dist/out-tsc",

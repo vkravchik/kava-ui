@@ -2,5 +2,7 @@
  * Public API Surface of components
  */
 
-export * from './lib/components.module';
-export * from './lib/button/button.module';
+// Theme
+export * from './lib/theme/public.api';
+// Button
+export * from './lib/button/kava-button.component';

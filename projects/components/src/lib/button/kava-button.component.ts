@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ThemeService } from '../theme/theme.service';
+
+export enum ButtonTypes {
+  primary = 'primary',
+  secondary = 'secondary',
+}
 
 @Component({
   selector: 'kava-button',
@@ -9,5 +13,6 @@ import { ThemeService } from '../theme/theme.service';
 })
 export class KavaButtonComponent {
   @Input() label!: string;
+  @Input() type: ButtonTypes = ButtonTypes.primary;
   @Input() disabled: boolean = false;
 }

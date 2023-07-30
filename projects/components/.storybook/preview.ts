@@ -1,21 +1,9 @@
 import { setCompodocJson } from '@storybook/addon-docs/angular';
-import type { Preview, StoryContext } from '@storybook/angular';
+import type { Preview } from '@storybook/angular';
 import docJson from '../documentation.json';
-import { ThemeService } from '../src/lib/theme/theme.service';
+import { withThemeProvider } from './with-theme-provider';
 
 setCompodocJson(docJson);
-
-const withThemeProvider = (story: Function, context: StoryContext) => {
-  const themeService = new ThemeService();
-
-  if (context.globals['theme'] === 'dark') {
-    themeService.setDarkTheme();
-  } else {
-    themeService.setLightTheme();
-  }
-
-  return story();
-}
 
 const preview: Preview = {
   globalTypes: {
@@ -29,10 +17,10 @@ const preview: Preview = {
         // Array of plain string values or MenuItem shape (see below)
         items: [{
           value: 'light',
-          title: 'KaVa Light'
+          title: 'KaVa Light',
         }, {
           value: 'dark',
-          title: 'KaVa Dark'
+          title: 'KaVa Dark',
         }],
         // Change title based on selected value
         dynamicTitle: true,

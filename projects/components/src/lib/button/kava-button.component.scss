@@ -6,6 +6,19 @@
   background-color: var(--primary-default);
   cursor: pointer;
 
+  &[type='secondary'] {
+    color: var(--secondary-contrast-text);
+    background-color: var(--secondary-default);
+
+    &:hover {
+      background-color: var(--secondary-dark);
+    }
+  }
+
+  &:hover {
+    background-color: var(--primary-dark);
+  }
+
   &:disabled {
     background-color: var(--background-disabled);
     color: var(--text-disabled);

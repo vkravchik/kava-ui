@@ -15,10 +15,13 @@ const config: StorybookConfig = {
   ],
   framework: {
     name: "@storybook/angular",
-    options: {},
+    options: {
+
+    },
   },
   docs: {
     autodocs: "tag",
+    defaultName: "Documentation"
   },
 };
 export default config;

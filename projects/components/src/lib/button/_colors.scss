@@ -1,0 +1,69 @@
+@import "./_types";
+
+
+@mixin generate-button-color($color, $contrast-text, $dark, $light) {
+  color: $contrast-text;
+  background-color: $color;
+  cursor: pointer;
+
+  &:hover:enabled {
+    background-color: $dark;
+  }
+}
+
+@mixin generate-buttons-colors {
+  &.primary {
+    $_color: var(--primary-default);
+    $_contrast-text: var(--primary-contrast-text);
+    $_dark: var(--primary-dark);
+    $_light: var(--primary-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+  &.secondary {
+    $_color: var(--secondary-default);
+    $_contrast-text: var(--secondary-contrast-text);
+    $_dark: var(--secondary-dark);
+    $_light: var(--secondary-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+  &.warning {
+    $_color: var(--warning-default);
+    $_contrast-text: var(--warning-contrast-text);
+    $_dark: var(--warning-dark);
+    $_light: var(--warning-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+  &.error {
+    $_color: var(--error-default);
+    $_contrast-text: var(--error-contrast-text);
+    $_dark: var(--error-dark);
+    $_light: var(--error-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+  &.success {
+    $_color: var(--success-default);
+    $_contrast-text: var(--success-contrast-text);
+    $_dark: var(--success-dark);
+    $_light: var(--success-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+  &.info {
+    $_color: var(--info-default);
+    $_contrast-text: var(--info-contrast-text);
+    $_dark: var(--info-dark);
+    $_light: var(--info-light);
+
+    @include generate-button-color($_color, $_contrast-text, $_dark, $_light);
+    @include generate-button-types($_color, $_contrast-text, $_dark, $_light);
+  }
+}

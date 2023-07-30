@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { ButtonTypes, KavaButtonComponent } from './kava-button.component';
+import { ButtonColors } from './button.colors';
+import { ButtonSizes } from './button.sizes';
+import { ButtonTypes } from './button.types';
+import { KavaButtonComponent } from './kava-button.component';
 
 const meta: Meta<KavaButtonComponent> = {
   title: 'Button',
@@ -22,14 +25,8 @@ export const Default: Story = {
   args: {
     label: 'Button',
     disabled: false,
-    type: ButtonTypes.primary,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Button',
-    disabled: true,
-    type: ButtonTypes.primary
+    color: ButtonColors.primary,
+    type: ButtonTypes.raised,
+    size: ButtonSizes.normal,
   },
 };

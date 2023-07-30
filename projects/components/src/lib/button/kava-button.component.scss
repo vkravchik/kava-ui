@@ -1,23 +1,12 @@
+@import "./_colors";
+@import "./_sizes";
+
 .kava-button {
   border: none;
   padding: .5rem;
 
-  color: var(--primary-contrast-text);
-  background-color: var(--primary-default);
-  cursor: pointer;
-
-  &[type='secondary'] {
-    color: var(--secondary-contrast-text);
-    background-color: var(--secondary-default);
-
-    &:hover {
-      background-color: var(--secondary-dark);
-    }
-  }
-
-  &:hover {
-    background-color: var(--primary-dark);
-  }
+  @include generate-buttons-colors;
+  @include generate-buttons-sizes;
 
   &:disabled {
     background-color: var(--background-disabled);

@@ -92,7 +92,7 @@ export const light: Theme = {
     '--success-light': '#4caf50',
     '--success-contrast-text': '#fff',
 
-    '--divider': 'rgba(0, 0, 0, 0.12)'
+    '--divider': 'rgba(0, 0, 0, 0.12)',
   }
 };
 
@@ -139,6 +139,6 @@ export const dark: Theme = {
     '--success-light': '#81c784',
     '--success-contrast-text': 'rgba(0, 0, 0, 0.87)',
 
-    '--divider': 'rgba(255, 255, 255, 0.12)'
+    '--divider': 'rgba(255, 255, 255, 0.12)',
   }
 };

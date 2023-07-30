@@ -31,6 +31,7 @@ const preview: Preview = {
     withThemeProvider
   ],
   parameters: {
+    layout: 'centered',
     docs: {
       story: { inline: false }, // render the story in an iframe
     },

@@ -489,7 +489,7 @@
     "components": [
         {
             "name": "KavaButtonComponent",
-            "id": "component-KavaButtonComponent-0573268eaf095ffe0e72da478ca31f1d91cb9f7d9d54a684c31c38cb24eea0d49ed64402effdff3374a9b2c98e1564e3baee97f6d0f3f771a89ad9f93be60e36",
+            "id": "component-KavaButtonComponent-d73bee4ea05fa5055bca873dd01a9ef92a0162a9e57dc99bce63e6b654fd0482bab5a7628f0a1297cdf6125bf3c71dead6778ab9c043e0a761c3e4a908f40ff0",
             "file": "projects/components/src/lib/button/kava-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -508,11 +508,20 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "color",
+                    "defaultValue": "ButtonColors.primary",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "ButtonColors",
+                    "decorators": []
+                },
+                {
                     "name": "disabled",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -520,42 +529,69 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 18,
                     "type": "string",
                     "decorators": []
                 },
                 {
-                    "name": "type",
-                    "defaultValue": "ButtonTypes.primary",
+                    "name": "size",
+                    "defaultValue": "ButtonSizes.normal",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 21,
+                    "type": "ButtonSizes",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "ButtonTypes.flat",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
                     "type": "ButtonTypes",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "classes",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Record<string, boolean>",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "NgStyle"
+                },
+                {
+                    "name": "NgClass"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\nexport enum ButtonTypes {\n  primary = 'primary',\n  secondary = 'secondary',\n}\n\n@Component({\n  selector: 'kava-button',\n  templateUrl: './kava-button.component.html',\n  styleUrls: ['./kava-button.component.scss'],\n  standalone: true\n})\nexport class KavaButtonComponent {\n  @Input() label!: string;\n  @Input() type: ButtonTypes = ButtonTypes.primary;\n  @Input() disabled: boolean = false;\n}\n",
+            "sourceCode": "import { NgClass, NgStyle } from '@angular/common';\nimport { Component, Input, OnChanges, SimpleChanges } from '@angular/core';\nimport { ButtonColors } from './button.colors';\nimport { ButtonSizes } from './button.sizes';\nimport { ButtonTypes } from './button.types';\n\n@Component({\n  selector: 'kava-button',\n  templateUrl: './kava-button.component.html',\n  styleUrls: ['./kava-button.component.scss'],\n  imports: [\n    NgStyle,\n    NgClass\n  ],\n  standalone: true\n})\nexport class KavaButtonComponent {\n  @Input() label!: string;\n  @Input() color: ButtonColors = ButtonColors.primary;\n  @Input() type: ButtonTypes = ButtonTypes.flat;\n  @Input() size: ButtonSizes = ButtonSizes.normal;\n  @Input() disabled: boolean = false;\n\n  classes(): Record<string, boolean> {\n    return {\n      [this.size]: true,\n      [this.color]: true,\n      [this.type]: true,\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".kava-button {\n  border: none;\n  padding: .5rem;\n\n  color: var(--primary-contrast-text);\n  background-color: var(--primary-default);\n  cursor: pointer;\n\n  &[type='secondary'] {\n    color: var(--secondary-contrast-text);\n    background-color: var(--secondary-default);\n\n    &:hover {\n      background-color: var(--secondary-dark);\n    }\n  }\n\n  &:hover {\n    background-color: var(--primary-dark);\n  }\n\n  &:disabled {\n    background-color: var(--background-disabled);\n    color: var(--text-disabled);\n    cursor: not-allowed;\n  }\n}\n",
+                    "data": "@import \"./_colors\";\n\n.kava-button {\n  border: none;\n  padding: .5rem;\n\n  @include generate-buttons-colors;\n\n  &:disabled {\n    background-color: var(--background-disabled);\n    color: var(--text-disabled);\n    cursor: not-allowed;\n  }\n}\n",
                     "styleUrl": "./kava-button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<button class=\"kava-button\"\n        [attr.type]=\"type\"\n        [disabled]=\"disabled\">{{label}}</button>\n"
+            "templateData": "<button class=\"kava-button\" [ngClass]=\"classes()\" [disabled]=\"disabled\">{{label}}</button>\n"
         }
     ],
     "modules": [
@@ -620,17 +656,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false,\n    type: ButtonTypes.primary,\n  },\n}"
-            },
-            {
-                "name": "Disabled",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/components/src/lib/button/kava-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: true,\n    type: ButtonTypes.primary\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false,\n    color: ButtonColors.primary,\n    type: ButtonTypes.raised,\n    size: ButtonSizes.normal,\n  },\n}"
             },
             {
                 "name": "light",
@@ -660,7 +686,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: [{\n          value: 'light',\n          title: 'KaVa Light',\n        }, {\n          value: 'dark',\n          title: 'KaVa Dark',\n        }],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    docs: {\n      story: { inline: false }, // render the story in an iframe\n    },\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: [{\n          value: 'light',\n          title: 'KaVa Light',\n        }, {\n          value: 'dark',\n          title: 'KaVa Dark',\n        }],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    layout: 'centered',\n    docs: {\n      story: { inline: false }, // render the story in an iframe\n    },\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
             }
         ],
         "functions": [],
@@ -679,7 +705,7 @@
         ],
         "enumerations": [
             {
-                "name": "ButtonTypes",
+                "name": "ButtonColors",
                 "childs": [
                     {
                         "name": "primary",
@@ -692,6 +718,30 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "value": "secondary"
+                    },
+                    {
+                        "name": "warning",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "warning"
+                    },
+                    {
+                        "name": "error",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "error"
+                    },
+                    {
+                        "name": "success",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "success"
+                    },
+                    {
+                        "name": "info",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "info"
                     }
                 ],
                 "ctype": "miscellaneous",
@@ -699,7 +749,77 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "file": "projects/components/src/lib/button/kava-button.component.ts"
+                "file": "projects/components/src/lib/button/button.colors.ts"
+            },
+            {
+                "name": "ButtonSizes",
+                "childs": [
+                    {
+                        "name": "small",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "small"
+                    },
+                    {
+                        "name": "normal",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "normal"
+                    },
+                    {
+                        "name": "large",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "large"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/components/src/lib/button/button.sizes.ts"
+            },
+            {
+                "name": "ButtonTypes",
+                "childs": [
+                    {
+                        "name": "basic",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "basic"
+                    },
+                    {
+                        "name": "raised",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "raised"
+                    },
+                    {
+                        "name": "stroked",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "stroked"
+                    },
+                    {
+                        "name": "flat",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "flat"
+                    },
+                    {
+                        "name": "circle",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "circle"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/components/src/lib/button/button.types.ts"
             }
         ],
         "groupedVariables": {
@@ -734,17 +854,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false,\n    type: ButtonTypes.primary,\n  },\n}"
-                },
-                {
-                    "name": "Disabled",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/components/src/lib/button/kava-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: true,\n    type: ButtonTypes.primary\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n    disabled: false,\n    color: ButtonColors.primary,\n    type: ButtonTypes.raised,\n    size: ButtonSizes.normal,\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -766,15 +876,15 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: [{\n          value: 'light',\n          title: 'KaVa Light',\n        }, {\n          value: 'dark',\n          title: 'KaVa Dark',\n        }],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    docs: {\n      story: { inline: false }, // render the story in an iframe\n    },\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: 'light',\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'circlehollow',\n        // Array of plain string values or MenuItem shape (see below)\n        items: [{\n          value: 'light',\n          title: 'KaVa Light',\n        }, {\n          value: 'dark',\n          title: 'KaVa Dark',\n        }],\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n  decorators: [\n    withThemeProvider\n  ],\n  parameters: {\n    layout: 'centered',\n    docs: {\n      story: { inline: false }, // render the story in an iframe\n    },\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {
-            "projects/components/src/lib/button/kava-button.component.ts": [
+            "projects/components/src/lib/button/button.colors.ts": [
                 {
-                    "name": "ButtonTypes",
+                    "name": "ButtonColors",
                     "childs": [
                         {
                             "name": "primary",
@@ -787,6 +897,30 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "value": "secondary"
+                        },
+                        {
+                            "name": "warning",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "error",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "error"
+                        },
+                        {
+                            "name": "success",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "success"
+                        },
+                        {
+                            "name": "info",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "info"
                         }
                     ],
                     "ctype": "miscellaneous",
@@ -794,7 +928,81 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "file": "projects/components/src/lib/button/kava-button.component.ts"
+                    "file": "projects/components/src/lib/button/button.colors.ts"
+                }
+            ],
+            "projects/components/src/lib/button/button.sizes.ts": [
+                {
+                    "name": "ButtonSizes",
+                    "childs": [
+                        {
+                            "name": "small",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "small"
+                        },
+                        {
+                            "name": "normal",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "normal"
+                        },
+                        {
+                            "name": "large",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "large"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/components/src/lib/button/button.sizes.ts"
+                }
+            ],
+            "projects/components/src/lib/button/button.types.ts": [
+                {
+                    "name": "ButtonTypes",
+                    "childs": [
+                        {
+                            "name": "basic",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "basic"
+                        },
+                        {
+                            "name": "raised",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "raised"
+                        },
+                        {
+                            "name": "stroked",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "stroked"
+                        },
+                        {
+                            "name": "flat",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "flat"
+                        },
+                        {
+                            "name": "circle",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "circle"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/components/src/lib/button/button.types.ts"
                 }
             ]
         },
@@ -835,7 +1043,7 @@
                 "linktype": "component",
                 "name": "KavaButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -844,16 +1052,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/components/src/lib/button/kava-button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

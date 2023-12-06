@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { ButtonColors } from './button.colors';
-import { ButtonSizes } from './button.sizes';
-import { ButtonTypes } from './button.types';
+import { ButtonColors } from './types/button.colors';
+import { ButtonSizes } from './types/button.sizes';
+import { ButtonTypes } from './types/button.types';
 import { KavaButtonComponent } from './kava-button.component';
 
 const meta: Meta<KavaButtonComponent> = {

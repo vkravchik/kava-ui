@@ -1,8 +1,8 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ButtonColors } from './button.colors';
-import { ButtonSizes } from './button.sizes';
-import { ButtonTypes } from './button.types';
+import { ButtonColors } from './types/button.colors';
+import { ButtonSizes } from './types/button.sizes';
+import { ButtonTypes } from './types/button.types';
 
 @Component({
   selector: 'kava-button',
